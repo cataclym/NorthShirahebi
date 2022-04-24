@@ -8,9 +8,9 @@ public sealed class MySnek : Snek
 {
     
     [cmd]
-    [Inject]
-    public async Task Hug(GuildContext ctx, HttpClient httpClient, string text = null)
+    public async Task Hug(GuildContext ctx, string text = null)
     {
+        HttpClient httpClient = new HttpClient();
         IEmbedBuilder emb = ctx.Embed().WithOkColor();
            
             await ctx.Channel.TriggerTypingAsync().ConfigureAwait(false);
@@ -33,8 +33,9 @@ public sealed class MySnek : Snek
         [cmd]
         [Inject]
 
-        public async Task Pat(GuildContext ctx, HttpClient httpClient, string text = null)
+        public async Task Pat(GuildContext ctx, string text = null)
         {
+            HttpClient httpClient = new HttpClient();
             IEmbedBuilder emb = ctx.Embed()
                 .WithOkColor();
            
@@ -59,8 +60,9 @@ public sealed class MySnek : Snek
         [cmd]
         [Inject]
 
-        public async Task Kiss(GuildContext ctx, HttpClient httpClient, string text = null)
+        public async Task Kiss(GuildContext ctx, string text = null)
         {
+            HttpClient httpClient = new HttpClient();
             IEmbedBuilder emb = ctx.Embed()
                 .WithOkColor();
            
