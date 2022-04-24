@@ -1,5 +1,6 @@
 using Nadeko.Snake;
 using NadekoBot;
+using Discord;
 using Newtonsoft.Json;
 using north_shirahebi;
 
@@ -7,9 +8,9 @@ public sealed class MySnek : Snek
 {
     
     [cmd]
-    public async Task Hug(GuildContext ctx, [Leftover] string text = null)
+    [Inject]
+    public async Task Hug(GuildContext ctx, HttpClient httpClient, string text = null)
     {
-        HttpClient httpClient = new HttpClient();
         IEmbedBuilder emb = ctx.Embed().WithOkColor();
            
             await ctx.Channel.TriggerTypingAsync().ConfigureAwait(false);
@@ -30,9 +31,10 @@ public sealed class MySnek : Snek
         }
         
         [cmd]
-        public async Task Pat(GuildContext ctx, [Leftover] string text = null)
+        [Inject]
+
+        public async Task Pat(GuildContext ctx, HttpClient httpClient, string text = null)
         {
-            HttpClient httpClient = new HttpClient();
             IEmbedBuilder emb = ctx.Embed()
                 .WithOkColor();
            
@@ -55,9 +57,10 @@ public sealed class MySnek : Snek
         }
         
         [cmd]
-        public async Task Kiss(GuildContext ctx, [Leftover] string text = null)
+        [Inject]
+
+        public async Task Kiss(GuildContext ctx, HttpClient httpClient, string text = null)
         {
-            HttpClient httpClient = new HttpClient();
             IEmbedBuilder emb = ctx.Embed()
                 .WithOkColor();
            
