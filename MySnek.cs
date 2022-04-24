@@ -7,7 +7,7 @@ public sealed class MySnek : Snek
 {
     
     [cmd]
-    public async Task hug(GuildContext ctx, [Leftover] string text = null)
+    public async Task Hug(GuildContext ctx, [Leftover] string text = null)
     {
         HttpClient httpClient = new HttpClient();
         IEmbedBuilder emb = ctx.Embed().WithOkColor();
@@ -30,7 +30,7 @@ public sealed class MySnek : Snek
         }
         
         [cmd]
-        public async Task pat(GuildContext ctx, [Leftover] string text = null)
+        public async Task Pat(GuildContext ctx, [Leftover] string text = null)
         {
             HttpClient httpClient = new HttpClient();
             IEmbedBuilder emb = ctx.Embed()
@@ -55,7 +55,7 @@ public sealed class MySnek : Snek
         }
         
         [cmd]
-        public async Task kiss(GuildContext ctx, [Leftover] string text = null)
+        public async Task Kiss(GuildContext ctx, [Leftover] string text = null)
         {
             HttpClient httpClient = new HttpClient();
             IEmbedBuilder emb = ctx.Embed()
