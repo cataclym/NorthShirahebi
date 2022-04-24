@@ -1,0 +1,17 @@
+hug:
+  desc: "Hug a friend!"
+  args:
+    - ""
+    - "@someone"
+
+kiss: 
+  desc: "K-kiss someone s-special!"
+  args:
+    - ""
+    - "@someone"
+
+pat:
+  desc: "A good boy deserves pats."
+  args:
+    - ""
+    - "@someone"
