@@ -12,13 +12,14 @@ public sealed class Interactions : Snek
         IEmbedBuilder emb = ctx.Embed().WithOkColor();
            
             await ctx.Channel.TriggerTypingAsync().ConfigureAwait(false);
-            using (var http = httpClient)
+
+            var img = await this.getImage("https://waifu.pics/api/sfw/hug", httpClient);
+            
+            if (!string.IsNullOrWhiteSpace(img))
             {
-                var img = await http.GetAsync("https://waifu.pics/api/sfw/hug").ConfigureAwait(false);
-                var content = await img.Content.ReadAsStringAsync();
-                var data = JsonConvert.DeserializeObject<WaifuData>(content);
-                if (data != null) emb.WithImageUrl(data.URL);
+                emb.WithImageUrl(img);
             }
+
             
             if (!string.IsNullOrWhiteSpace(text))
             {
@@ -36,12 +37,11 @@ public sealed class Interactions : Snek
            
             await ctx.Channel.TriggerTypingAsync().ConfigureAwait(false);
 
-            using (var http = httpClient)
+            var img = await this.getImage("https://waifu.pics/api/sfw/pat", httpClient);
+            
+            if (!string.IsNullOrWhiteSpace(img))
             {
-                var img = await http.GetAsync("https://waifu.pics/api/sfw/pat").ConfigureAwait(false);
-                var content = await img.Content.ReadAsStringAsync();
-                var data = JsonConvert.DeserializeObject<WaifuData>(content);
-                if (data != null) emb.WithImageUrl(data.URL);
+                emb.WithImageUrl(img);
             }
 
             if (!string.IsNullOrWhiteSpace(text))
@@ -60,19 +60,72 @@ public sealed class Interactions : Snek
            
             await ctx.Channel.TriggerTypingAsync().ConfigureAwait(false);
 
-            using (var http = httpClient)
+            var img = await this.getImage("https://waifu.pics/api/sfw/kiss", httpClient);
+            
+            if (!string.IsNullOrWhiteSpace(img))
             {
-                var img = await http.GetAsync("https://waifu.pics/api/sfw/kiss").ConfigureAwait(false);
-                var content = await img.Content.ReadAsStringAsync();
-                var data = JsonConvert.DeserializeObject<WaifuData>(content);
-                if (data != null) emb.WithImageUrl(data.URL);
+                emb.WithImageUrl(img);
             }
-
+            
             if (!string.IsNullOrWhiteSpace(text))
             {
                 emb.WithDescription($"{ctx.User.Mention} kissed {text}");
             }
 
             await ctx.Channel.EmbedAsync(emb);
+        }
+        
+        [cmd]
+        public async Task Wave(GuildContext ctx, [inject] HttpClient httpClient, [leftover] string text = null)
+        {
+            IEmbedBuilder emb = ctx.Embed()
+                .WithOkColor();
+           
+            await ctx.Channel.TriggerTypingAsync().ConfigureAwait(false);
+
+            var img = await this.getImage("https://waifu.pics/api/sfw/wave", httpClient);
+            
+            if (!string.IsNullOrWhiteSpace(img))
+            {
+                emb.WithImageUrl(img);
+            }
+
+            if (!string.IsNullOrWhiteSpace(text))
+            {
+                emb.WithDescription($"{ctx.User.Mention} waved at {text}");
+            }
+
+            await ctx.Channel.EmbedAsync(emb);
+        }
+        
+        [cmd]
+        public async Task Cuddle(GuildContext ctx, [inject] HttpClient httpClient, [leftover] string text = null)
+        {
+            IEmbedBuilder emb = ctx.Embed()
+                .WithOkColor();
+           
+            await ctx.Channel.TriggerTypingAsync().ConfigureAwait(false);
+
+            var img = await this.getImage("https://waifu.pics/api/sfw/cuddle", httpClient);
+            
+            if (!string.IsNullOrWhiteSpace(img))
+            {
+                emb.WithImageUrl(img);
+            }
+
+            if (!string.IsNullOrWhiteSpace(text))
+            {
+                emb.WithDescription($"{ctx.User.Mention} cuddled {text}");
+            }
+
+            await ctx.Channel.EmbedAsync(emb);
+        }
+
+        private async Task<string> getImage(String url, HttpClient http)
+        {
+            var img = await http.GetAsync(url).ConfigureAwait(false);
+            var content = await img.Content.ReadAsStringAsync();
+            var data = JsonConvert.DeserializeObject<WaifuData>(content);
+            return data?.URL;
         }
 }
