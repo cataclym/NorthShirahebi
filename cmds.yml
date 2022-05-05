@@ -15,3 +15,15 @@ pat:
   args:
     - ""
     - "@someone"
+
+cuddle:
+  desc: "Cuddle your lover. ...Or yourself."
+  args:
+    - ""
+    - "@someone"
+
+wave:
+  desc: "Greet your friends with a friendly wave."
+  args:
+    - ""
+    - "@someone"
