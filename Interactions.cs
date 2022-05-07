@@ -5,15 +5,21 @@ using NorthShirahebi;
 
 public sealed class Interactions : Snek
 {
-    
-    [cmd]
-    public async Task Hug(GuildContext ctx, [inject] HttpClient httpClient, [leftover] string text = null)
-    {
-        IEmbedBuilder emb = ctx.Embed().WithOkColor();
+    private static string UrlHug => "https://waifu.pics/api/sfw/hug";
+    private static string UrlPat => "https://waifu.pics/api/sfw/pat";
+    private static string UrlKiss => "https://waifu.pics/api/sfw/kiss";
+    private static string UrlWave => "https://waifu.pics/api/sfw/wave";
+    private static string UrlCuddle => "https://waifu.pics/api/sfw/cuddle";
+        
+        
+        [cmd]
+        public async Task Hug(GuildContext ctx, [inject] HttpClient httpClient, [leftover] string text = null)
+        {
+            IEmbedBuilder emb = ctx.Embed().WithOkColor();
            
             await ctx.Channel.TriggerTypingAsync().ConfigureAwait(false);
 
-            var img = await this.getImage("https://waifu.pics/api/sfw/hug", httpClient);
+            var img = await getImage(UrlHug, httpClient);
             
             if (!string.IsNullOrWhiteSpace(img))
             {
@@ -28,7 +34,7 @@ public sealed class Interactions : Snek
 
             await ctx.Channel.EmbedAsync(emb);
         }
-        
+            
         [cmd]
         public async Task Pat(GuildContext ctx, [inject] HttpClient httpClient, [leftover] string text = null)
         {
@@ -37,7 +43,7 @@ public sealed class Interactions : Snek
            
             await ctx.Channel.TriggerTypingAsync().ConfigureAwait(false);
 
-            var img = await this.getImage("https://waifu.pics/api/sfw/pat", httpClient);
+            var img = await getImage(UrlPat, httpClient);
             
             if (!string.IsNullOrWhiteSpace(img))
             {
@@ -60,7 +66,7 @@ public sealed class Interactions : Snek
            
             await ctx.Channel.TriggerTypingAsync().ConfigureAwait(false);
 
-            var img = await this.getImage("https://waifu.pics/api/sfw/kiss", httpClient);
+            var img = await getImage(UrlKiss, httpClient);
             
             if (!string.IsNullOrWhiteSpace(img))
             {
@@ -83,7 +89,7 @@ public sealed class Interactions : Snek
            
             await ctx.Channel.TriggerTypingAsync().ConfigureAwait(false);
 
-            var img = await this.getImage("https://waifu.pics/api/sfw/wave", httpClient);
+            var img = await getImage(UrlWave, httpClient);
             
             if (!string.IsNullOrWhiteSpace(img))
             {
@@ -106,7 +112,7 @@ public sealed class Interactions : Snek
            
             await ctx.Channel.TriggerTypingAsync().ConfigureAwait(false);
 
-            var img = await this.getImage("https://waifu.pics/api/sfw/cuddle", httpClient);
+            var img = await getImage(UrlCuddle, httpClient);
             
             if (!string.IsNullOrWhiteSpace(img))
             {
@@ -126,6 +132,6 @@ public sealed class Interactions : Snek
             var img = await http.GetAsync(url).ConfigureAwait(false);
             var content = await img.Content.ReadAsStringAsync();
             var data = JsonConvert.DeserializeObject<WaifuData>(content);
-            return data?.URL;
+            return data?.URL ?? "https://i.waifu.pics/YEG4YAl.gif";
         }
 }
