@@ -19,7 +19,7 @@ public sealed class Interactions : Snek
            
             await ctx.Channel.TriggerTypingAsync().ConfigureAwait(false);
 
-            var img = await getImage(UrlHug, httpClient);
+            var img = await GetImage(UrlHug, httpClient);
             
             if (!string.IsNullOrWhiteSpace(img))
             {
@@ -43,7 +43,7 @@ public sealed class Interactions : Snek
            
             await ctx.Channel.TriggerTypingAsync().ConfigureAwait(false);
 
-            var img = await getImage(UrlPat, httpClient);
+            var img = await GetImage(UrlPat, httpClient);
             
             if (!string.IsNullOrWhiteSpace(img))
             {
@@ -66,7 +66,7 @@ public sealed class Interactions : Snek
            
             await ctx.Channel.TriggerTypingAsync().ConfigureAwait(false);
 
-            var img = await getImage(UrlKiss, httpClient);
+            var img = await GetImage(UrlKiss, httpClient);
             
             if (!string.IsNullOrWhiteSpace(img))
             {
@@ -89,7 +89,7 @@ public sealed class Interactions : Snek
            
             await ctx.Channel.TriggerTypingAsync().ConfigureAwait(false);
 
-            var img = await getImage(UrlWave, httpClient);
+            var img = await GetImage(UrlWave, httpClient);
             
             if (!string.IsNullOrWhiteSpace(img))
             {
@@ -112,7 +112,7 @@ public sealed class Interactions : Snek
            
             await ctx.Channel.TriggerTypingAsync().ConfigureAwait(false);
 
-            var img = await getImage(UrlCuddle, httpClient);
+            var img = await GetImage(UrlCuddle, httpClient);
             
             if (!string.IsNullOrWhiteSpace(img))
             {
@@ -127,7 +127,7 @@ public sealed class Interactions : Snek
             await ctx.Channel.EmbedAsync(emb);
         }
 
-        private async Task<string> getImage(String url, HttpClient http)
+        private async Task<string> GetImage(String url, HttpClient http)
         {
             var img = await http.GetAsync(url).ConfigureAwait(false);
             var content = await img.Content.ReadAsStringAsync();
