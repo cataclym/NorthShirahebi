@@ -1,9 +1,9 @@
 using Nadeko.Snake;
 using NadekoBot;
 using Newtonsoft.Json;
-using NorthShirahebi;
+using north_shirahebi;
 
-public sealed class Interactions : Snek
+public sealed class SocialInteractions : Snek
 {
     private static string UrlHug => "https://waifu.pics/api/sfw/hug";
     private static string UrlPat => "https://waifu.pics/api/sfw/pat";
@@ -15,7 +15,8 @@ public sealed class Interactions : Snek
         [cmd]
         public async Task Hug(GuildContext ctx, [inject] HttpClient httpClient, [leftover] string text = null)
         {
-            IEmbedBuilder emb = ctx.Embed().WithOkColor();
+            IEmbedBuilder emb = ctx.Embed()
+                .WithOkColor();
            
             await ctx.Channel.TriggerTypingAsync().ConfigureAwait(false);
 

@@ -1,4 +1,4 @@
-namespace NorthShirahebi;
+namespace north_shirahebi;
 
 public class WaifuData
 {
