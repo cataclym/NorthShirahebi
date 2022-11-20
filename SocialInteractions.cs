@@ -1,7 +1,7 @@
 using Nadeko.Snake;
 using NadekoBot;
 using Newtonsoft.Json;
-using north_shirahebi;
+using NorthShirahebi;
 
 public sealed class SocialInteractions : Snek
 {
