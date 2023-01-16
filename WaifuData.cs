@@ -1,6 +1,8 @@
+using System.Text.Json.Serialization;
+
 namespace NorthShirahebi;
 
 public class WaifuData
 {
-        public string URL { get; set; }
+    [JsonPropertyName("url")] public string URL { get; set; }
 }

@@ -8,6 +8,7 @@
         <!-- Use latest .net features -->
         <LangVersion>preview</LangVersion>
         <EnablePreviewFeatures>true</EnablePreviewFeatures>
+        <GenerateRequiresPreviewFeaturesAttribute>True</GenerateRequiresPreviewFeaturesAttribute>
 
         <!-- tell .net that this library will be used as a plugin -->
         <EnableDynamicLoading>true</EnableDynamicLoading>
