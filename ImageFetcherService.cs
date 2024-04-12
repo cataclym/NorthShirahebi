@@ -31,7 +31,7 @@ public sealed class ImageFetcherService : IImageFetcherService
         if (!_validInputs.Contains(category)) throw new ArgumentOutOfRangeException(nameof(category));
 
         var data = await http.GetFromJsonAsync<NekosData>(
-            $"https://nekos.nekidev.com/api/image/random?categories={category}&limit=1");
+            $" https://v1.nekosapi.com/api/image/random?categories={category}&limit=1");
 
         return data.Data[0].Url;
     }
