@@ -84,63 +84,51 @@ public sealed class Shrine : Snek
         [cmd]
         public async Task Catgirl(AnyContext ctx, [inject] HttpClient httpClient)
         {
-            await SendNekosEmbedAsync(ctx, httpClient, "Catgirl");
+            await SendNekosEmbedAsync(ctx, httpClient, "8");
         }
 
         [cmd]
         public async Task Rain(AnyContext ctx, [inject] HttpClient httpClient)
         {
-            await SendNekosEmbedAsync(ctx, httpClient, "Rain");
+            await SendNekosEmbedAsync(ctx, httpClient, "28");
         }
 
         [cmd]
         public async Task Weapon(AnyContext ctx, [inject] HttpClient httpClient)
         {
-            await SendNekosEmbedAsync(ctx, httpClient, "Weapon");
+            await SendNekosEmbedAsync(ctx, httpClient, "30");
         }
 
         [cmd]
         public async Task Mountain(AnyContext ctx, [inject] HttpClient httpClient)
         {
-            await SendNekosEmbedAsync(ctx, httpClient, "Mountain");
-        }
-
-        [cmd]
-        public async Task Swimmingpool(AnyContext ctx, [inject] HttpClient httpClient)
-        {
-            await SendNekosEmbedAsync(ctx, httpClient, "Swimming pool");
+            await SendNekosEmbedAsync(ctx, httpClient, "22");
         }
 
         [cmd]
         public async Task Sportswear(AnyContext ctx, [inject] HttpClient httpClient)
         {
-            await SendNekosEmbedAsync(ctx, httpClient, "Swimming pool");
+            await SendNekosEmbedAsync(ctx, httpClient, "4");
         }
 
         [cmd]
         public async Task Baggyclothes(AnyContext ctx, [inject] HttpClient httpClient)
         {
-            await SendNekosEmbedAsync(ctx, httpClient, "Baggy clothes");
+            await SendNekosEmbedAsync(ctx, httpClient, "39");
         }
 
         [cmd]
         public async Task Dress(AnyContext ctx, [inject] HttpClient httpClient)
         {
-            await SendNekosEmbedAsync(ctx, httpClient, "Dress");
+            await SendNekosEmbedAsync(ctx, httpClient, "35");
         }
 
         [cmd]
         public async Task Tree(AnyContext ctx, [inject] HttpClient httpClient)
         {
-            await SendNekosEmbedAsync(ctx, httpClient, "Tree");
+            await SendNekosEmbedAsync(ctx, httpClient, "33");
         }
-
-        [cmd]
-        public async Task Screenshot(AnyContext ctx, [inject] HttpClient httpClient)
-        {
-            await SendNekosEmbedAsync(ctx, httpClient, "Screenshot");
-        }
-
+        
         private async Task SendNekosEmbedAsync(AnyContext ctx, [inject] HttpClient httpClient, string category)
         {
             IEmbedBuilder emb = ctx.Embed()
