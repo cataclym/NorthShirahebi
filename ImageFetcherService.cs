@@ -8,16 +8,23 @@ public sealed class ImageFetcherService : IImageFetcherService
 {
     private readonly IReadOnlySet<string> _validInputs = new HashSet<string>()
     {
-        "Catgirl",
-        "Rain",
-        "Weapon",
-        "Mountain",
-        "Swimming pool",
-        "Sportswear",
-        "Baggy clothes",
-        "Dress",
-        "Tree",
-        "Screenshot"
+        "8",
+        "28",
+        "30",
+        "22",
+        "4",
+        "39",
+        "35",
+        "33",
+        
+        // "Catgirl",
+        // "Rain",
+        // "Weapon",
+        // "Mountain",
+        // "Sportswear",
+        // "Baggy clothes",
+        // "Dress",
+        // "Tree",
     };
 
     public async Task<string> GetWaifuPicsImage(string url, HttpClient http)
@@ -31,7 +38,7 @@ public sealed class ImageFetcherService : IImageFetcherService
         if (!_validInputs.Contains(category)) throw new ArgumentOutOfRangeException(nameof(category));
 
         var data = await http.GetFromJsonAsync<NekosData>(
-            $" https://v1.nekosapi.com/api/image/random?categories={category}&limit=1");
+            $"https://v1.nekosapi.com/api/image/random?categories={category}&limit=1");
 
         return data.Data[0].Url;
     }
