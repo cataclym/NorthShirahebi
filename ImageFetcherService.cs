@@ -18,7 +18,7 @@ public sealed class ImageFetcherService : IImageFetcherService
     public async Task<string> GetRandomNekosImage(Categories category, HttpClient http)
     {
         var stringEndPoint = $"https://api.sappiness.com/v3/images/random/file?tag={category}&limit=1";
-            Trace.WriteLine(stringEndPoint);
+            System.Console.WriteLine(stringEndPoint);
             
         return await http
             .GetStringAsync(stringEndPoint)
