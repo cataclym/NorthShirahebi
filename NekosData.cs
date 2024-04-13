@@ -4,10 +4,10 @@ namespace NorthShirahebi;
 
 public class NekosData
 {
-    [JsonPropertyName("data")] public List<Datum> Data { get; set; }
+    [JsonPropertyName("items")] public List<Datum> Data { get; set; }
 }
 
 public class Datum
 {
-    [JsonPropertyName("url")] public string Url { get; set; }
+    [JsonPropertyName("image_url")] public string Url { get; set; }
 }
