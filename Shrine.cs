@@ -136,7 +136,7 @@ public sealed class Shrine : Snek
 
             await ctx.Channel.TriggerTypingAsync().ConfigureAwait(false);
 
-            var img = await _service.GetRandomNekosImage(category, httpClient);
+            var img = await _service.GetRandomNekosImage((int)category, httpClient);
 
 
             if (!string.IsNullOrWhiteSpace(img))

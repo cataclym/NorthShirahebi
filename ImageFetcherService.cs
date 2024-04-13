@@ -15,10 +15,9 @@ public sealed class ImageFetcherService : IImageFetcherService
         return img?.URL ?? "https://i.waifu.pics/YEG4YAl.gif";
     }
 
-    public async Task<string> GetRandomNekosImage(Categories category, HttpClient http)
+    public async Task<string> GetRandomNekosImage(int category, HttpClient http)
     {
-        var stringEndPoint = $"https://api.nekosapi.com/v3/images/random/file?tag={category}&limit=1";
-            System.Console.WriteLine(stringEndPoint);
+        var stringEndPoint = $"https://api.nekosapi.com/v3/images/random/file?tag={category.GetTypeCode()}&limit=1";
             
         return await http
             .GetStringAsync(stringEndPoint)
@@ -41,5 +40,5 @@ public sealed class ImageFetcherService : IImageFetcherService
 public interface IImageFetcherService
 {
     Task<string> GetWaifuPicsImage(string url, HttpClient http);
-    Task<string> GetRandomNekosImage(ImageFetcherService.Categories category, HttpClient http);
+    Task<string> GetRandomNekosImage(int category, HttpClient http);
 }
