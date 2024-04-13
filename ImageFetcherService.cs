@@ -17,11 +17,13 @@ public sealed class ImageFetcherService : IImageFetcherService
 
     public async Task<string> GetRandomNekosImage(int category, HttpClient http)
     {
-        var stringEndPoint = $"https://api.nekosapi.com/v3/images/random/file?tag={category}&limit=1";
+        var stringEndPoint = $"https://api.nekosapi.com/v3/images/random?tag={category}&limit=1";
             
-        return await http
-            .GetStringAsync(stringEndPoint)
+        var data = await http
+            .GetFromJsonAsync<NekosData>(stringEndPoint)
             .ConfigureAwait(false);
+
+        return data.Items.FirstOrDefault()?.ImageUrl;
     }
 
     public enum Categories
