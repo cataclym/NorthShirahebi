@@ -6,26 +6,6 @@ namespace NorthShirahebi;
 [svc(Lifetime.Singleton)]
 public sealed class ImageFetcherService : IImageFetcherService
 {
-    private readonly IReadOnlySet<string> _validInputs = new HashSet<string>()
-    {
-        "8",
-        "28",
-        "30",
-        "22",
-        "4",
-        "39",
-        "35",
-        "33",
-        
-        // "Catgirl",
-        // "Rain",
-        // "Weapon",
-        // "Mountain",
-        // "Sportswear",
-        // "Baggy clothes",
-        // "Dress",
-        // "Tree",
-    };
 
     public async Task<string> GetWaifuPicsImage(string url, HttpClient http)
     {
@@ -33,19 +13,29 @@ public sealed class ImageFetcherService : IImageFetcherService
         return img?.URL ?? "https://i.waifu.pics/YEG4YAl.gif";
     }
 
-    public async Task<string> GetRandomNekosImage(string category, HttpClient http)
+    public async Task<string> GetRandomNekosImage(Categories category, HttpClient http)
     {
-        if (!_validInputs.Contains(category)) throw new ArgumentOutOfRangeException(nameof(category));
-
         var data = await http.GetFromJsonAsync<NekosData>(
             $"https://v1.nekosapi.com/api/image/random?categories={category}&limit=1");
 
         return data.Data[0].Url;
+    }
+
+    public enum Categories
+    {
+        Catgirl = 8,
+        Rain = 28,
+        Weapon = 30,
+        Mountain = 22,
+        Sportswear = 4,
+        BaggyClothes = 39,
+        Dress = 35,
+        Tree = 33
     }
 }
 
 public interface IImageFetcherService
 {
     Task<string> GetWaifuPicsImage(string url, HttpClient http);
-    Task<string> GetRandomNekosImage(string category, HttpClient http);
+    Task<string> GetRandomNekosImage(ImageFetcherService.Categories category, HttpClient http);
 }

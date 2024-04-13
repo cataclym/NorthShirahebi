@@ -84,52 +84,52 @@ public sealed class Shrine : Snek
         [cmd]
         public async Task Catgirl(AnyContext ctx, [inject] HttpClient httpClient)
         {
-            await SendNekosEmbedAsync(ctx, httpClient, "8");
+            await SendNekosEmbedAsync(ctx, httpClient, ImageFetcherService.Categories.Catgirl);
         }
 
         [cmd]
         public async Task Rain(AnyContext ctx, [inject] HttpClient httpClient)
         {
-            await SendNekosEmbedAsync(ctx, httpClient, "28");
+            await SendNekosEmbedAsync(ctx, httpClient, ImageFetcherService.Categories.Rain);
         }
 
         [cmd]
         public async Task Weapon(AnyContext ctx, [inject] HttpClient httpClient)
         {
-            await SendNekosEmbedAsync(ctx, httpClient, "30");
+            await SendNekosEmbedAsync(ctx, httpClient, ImageFetcherService.Categories.Weapon);
         }
 
         [cmd]
         public async Task Mountain(AnyContext ctx, [inject] HttpClient httpClient)
         {
-            await SendNekosEmbedAsync(ctx, httpClient, "22");
+            await SendNekosEmbedAsync(ctx, httpClient, ImageFetcherService.Categories.Mountain);
         }
 
         [cmd]
         public async Task Sportswear(AnyContext ctx, [inject] HttpClient httpClient)
         {
-            await SendNekosEmbedAsync(ctx, httpClient, "4");
+            await SendNekosEmbedAsync(ctx, httpClient, ImageFetcherService.Categories.Sportswear);
         }
 
         [cmd]
         public async Task Baggyclothes(AnyContext ctx, [inject] HttpClient httpClient)
         {
-            await SendNekosEmbedAsync(ctx, httpClient, "39");
+            await SendNekosEmbedAsync(ctx, httpClient, ImageFetcherService.Categories.BaggyClothes);
         }
 
         [cmd]
         public async Task Dress(AnyContext ctx, [inject] HttpClient httpClient)
         {
-            await SendNekosEmbedAsync(ctx, httpClient, "35");
+            await SendNekosEmbedAsync(ctx, httpClient, ImageFetcherService.Categories.Dress);
         }
 
         [cmd]
         public async Task Tree(AnyContext ctx, [inject] HttpClient httpClient)
         {
-            await SendNekosEmbedAsync(ctx, httpClient, "33");
+            await SendNekosEmbedAsync(ctx, httpClient, ImageFetcherService.Categories.Tree);
         }
         
-        private async Task SendNekosEmbedAsync(AnyContext ctx, [inject] HttpClient httpClient, string category)
+        private async Task SendNekosEmbedAsync(AnyContext ctx, [inject] HttpClient httpClient, ImageFetcherService.Categories category)
         {
             IEmbedBuilder emb = ctx.Embed()
                 .WithOkColor();
