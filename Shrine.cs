@@ -1,5 +1,5 @@
-using Nadeko.Snake;
-using NadekoBot;
+using Discord;
+using NadekoBot.Medusa;
 using NorthShirahebi;
 
 public sealed class Shrine : Snek
@@ -51,8 +51,7 @@ public sealed class Shrine : Snek
         private async Task SendWaifuPicsEmbedAsync(AnyContext ctx, [inject] HttpClient httpClient, string url,
             string text)
         {
-            IEmbedBuilder emb = ctx.Embed()
-                .WithOkColor();
+            var emb = new EmbedBuilder();
 
             await ctx.Channel.TriggerTypingAsync().ConfigureAwait(false);
 
@@ -131,8 +130,7 @@ public sealed class Shrine : Snek
         
         private async Task SendNekosEmbedAsync(AnyContext ctx, [inject] HttpClient httpClient, ImageFetcherService.Categories category)
         {
-            IEmbedBuilder emb = ctx.Embed()
-                .WithOkColor();
+            var emb = new EmbedBuilder();
 
             await ctx.Channel.TriggerTypingAsync().ConfigureAwait(false);
 

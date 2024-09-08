@@ -1,6 +1,6 @@
 using System.Diagnostics;
 using System.Net.Http.Json;
-using Nadeko.Snake;
+using NadekoBot.Medusa;
 using Serilog.Core;
 
 namespace NorthShirahebi;
