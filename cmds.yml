@@ -28,43 +28,22 @@ wave:
     - ""
     - "@someone"
 
-catgirl:
+waifu:
+  desc: "Spawn a random waifu!"
+  args:
+    - ""
+
+neko:
   desc: "Spawn a random catgirl!"
   args:
     - ""
-Rain:
-  desc: "Spawn a random image with a rainy scenery."
+
+shinobu:
+  desc: "Little vampire girl"
   args:
     - ""
-Weapon:
-  desc: "Spawn a random image featuring weapon(s)."
-  args:
-    - ""
-Mountain:
-  desc: "Spawn a random image with a mountainous scenery."
-  args:
-    - ""
-Swimmingpool:
-  desc: "Spawn a random image featuring a swimming pool(?)."
-  args:
-    - ""
-Sportswear:
-  desc: "Spawn a random image with one or more characters wearing sportswear."
-  args:
-    - ""
-Baggyclothes:
-  desc: "Spawn a random image with one or more characters wearing baggy clothes."
-  args:
-    - ""
-Dress:
-  desc: "Spawn a random image with one or more characters wearing a dress"
-  args:
-    - ""
-Tree:
-  desc: "Spawn a random image where one or more characters are in a tree."
-  args:
-    - ""
-Screenshot:
-  desc: "Spawn image of a screenshot of the original source of the image. (ex. Screenshot of an anime scene)"
+
+megumin:
+  desc: "Explosive girl"
   args:
     - ""
