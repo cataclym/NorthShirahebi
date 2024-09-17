@@ -3,7 +3,7 @@
 
 on:
   push:
-    tags: 
+    tags:
       - '*'
 
 name: Create Release
@@ -15,12 +15,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Build
-        run: dotnet publish -o . /p:DebugType=embedded
+        run: dotnet publish -o ./build /p:DebugType=embedded
+      - name: Package
+        run: tar -czf NorthShirahebi-${{github.ref_name}}.tar.gz -C build .
       - name: Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v2.0.8
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: |
-            *.yml
-            *.dll
-            *.json
+          files: NorthShirahebi-${{github.ref_name}}.tar.gz
