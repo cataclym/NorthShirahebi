@@ -21,7 +21,7 @@ public sealed class Shrine : Snek
             return img.URL;
         }
         
-        public async Task SendWaifuPicsEmbedAsync(AnyContext ctx, ImageType imageType, string text)
+        public async Task SendWaifuPicsEmbedAsync(AnyContext ctx, ImageType imageType, string text = null)
         {
             var emb = new EmbedBuilder();
 
@@ -34,25 +34,27 @@ public sealed class Shrine : Snek
                 emb.WithImageUrl(img);
             }
 
-            switch(imageType)
+            if (!string.IsNullOrWhiteSpace(text))
             {
-                case ImageType.hug:
-                    emb.WithDescription($"{ctx.User.Mention} hugged {text}");
-                    break;
-                case ImageType.pat:
-                    emb.WithDescription($"{ctx.User.Mention} petted {text}");
-                    break;
-                case ImageType.kiss:
-                    emb.WithDescription($"{ctx.User.Mention} kissed {text}");
-                    break;
-                case ImageType.wave:
-                    emb.WithDescription($"{ctx.User.Mention} waved to {text}");
-                    break;
-                case ImageType.cuddle:
-                    emb.WithDescription($"{ctx.User.Mention} cuddled {text}");
-                    break;
+                switch (imageType)
+                {
+                    case ImageType.hug:
+                        emb.WithDescription($"{ctx.User.Mention} hugged {text}");
+                        break;
+                    case ImageType.pat:
+                        emb.WithDescription($"{ctx.User.Mention} petted {text}");
+                        break;
+                    case ImageType.kiss:
+                        emb.WithDescription($"{ctx.User.Mention} kissed {text}");
+                        break;
+                    case ImageType.wave:
+                        emb.WithDescription($"{ctx.User.Mention} waved to {text}");
+                        break;
+                    case ImageType.cuddle:
+                        emb.WithDescription($"{ctx.User.Mention} cuddled {text}");
+                        break;
+                }
             }
-    
             await ctx.Channel.EmbedAsync(emb);
         }
         

@@ -3,3 +3,5 @@
 Make your own https://nadekobot.readthedocs.io/en/latest/medusa/creating-a-medusa/
 
 ### This Medusa pulls images from [waifu.pics](https://waifu.pics/)
+
+![img.png](img.png)
